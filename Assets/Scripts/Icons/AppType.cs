@@ -1,7 +1,8 @@
 public enum AppType
 {
+    RecycleBin,
     Settings,
     Explorer,
     Browser,
-    RecycleBin
+    Terminal
 }
