@@ -1,0 +1,5 @@
+Player can move windows off screen and cant retrieve them or reset
+when 3 or more windows are opened and the earlier windows are closed the taskbar has gaps. 
+(doesn't automatically move the icons to the left)
+
+clicking a window beneath other windows doesn't bring it to the front
