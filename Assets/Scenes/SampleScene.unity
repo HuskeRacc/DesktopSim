@@ -228,6 +228,9 @@ MonoBehaviour:
   - popupID: rajii
     popupPrefab: {fileID: 2376224519576989762, guid: c2edbb3f892a30144a617d78a452ec99, type: 3}
     popupIcon: {fileID: 21300000, guid: ddeb276e0055bf043acba6e2f02d648e, type: 3}
+  - popupID: rajii2
+    popupPrefab: {fileID: 5180701178650116019, guid: 4935799b8bb1a4841aed07f8f4c42f3b, type: 3}
+    popupIcon: {fileID: 21300000, guid: ddeb276e0055bf043acba6e2f02d648e, type: 3}
   canvasTransform: {fileID: 1261889476}
   appWindowConfigs:
   - appType: 1
@@ -1353,9 +1356,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 962165433}
   - {fileID: 2117113577}
   - {fileID: 1467424764}
-  - {fileID: 962165433}
   - {fileID: 4259134226232844215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
