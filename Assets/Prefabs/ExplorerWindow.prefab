@@ -4761,6 +4761,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   closeButton: {fileID: 8377988765054172283}
+  minimizeButton: {fileID: 6210631731221102920}
 --- !u!1 &7069829770240924334
 GameObject:
   m_ObjectHideFlags: 0
