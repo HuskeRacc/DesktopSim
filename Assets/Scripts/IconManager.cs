@@ -8,6 +8,10 @@ public class IconManager : MonoBehaviour
     [SerializeField] private GameObject desktopIconPrefab;
     [SerializeField] private GameObject taskbarIconPrefab;
 
+    [Header("Window Prefabs")]
+    [SerializeField] private GameObject explorerWindowPrefab; // Drag your Window Prefab here
+    [SerializeField] private Transform canvasTransform;       // Target Canvas to parent windows under
+
     [Header("Icon Positions")]
     [SerializeField] private GameObject[] desktopIconPositions;
     [SerializeField] private GameObject[] taskbarIconPositions;
@@ -15,28 +19,13 @@ public class IconManager : MonoBehaviour
     [Header("Available Apps")]
     [SerializeField] private AppData[] availableApps;
 
-    [Header("Window Panels")]
-    [SerializeField] private WindowController explorerWindow;
-
+    // Track active runtime instances
+    private WindowController activeExplorerWindow;
     private GameObject activeExplorerTaskbarIcon;
 
     private void Start()
     {
         Initialise();
-        
-        // Listen for when the window closes so we can destroy the taskbar icon
-        if (explorerWindow != null)
-        {
-            explorerWindow.OnWindowClosed += OnExplorerClosed;
-        }
-    }
-
-    private void OnDestroy()
-    {
-        if (explorerWindow != null)
-        {
-            explorerWindow.OnWindowClosed -= OnExplorerClosed;
-        }
     }
 
     private void Initialise()
@@ -81,31 +70,55 @@ public class IconManager : MonoBehaviour
 
     private void OpenExplorer()
     {
-        if (explorerWindow == null) return;
-
-        explorerWindow.OpenWindow();
-
-        // Spawn taskbar icon if it isn't already there
-        if (activeExplorerTaskbarIcon == null && taskbarIconPositions.Length > 0)
+        // 1. If window doesn't exist yet, instantiate it from prefab
+        if (activeExplorerWindow == null)
         {
-            Transform slot = taskbarIconPositions[0].transform;
-            activeExplorerTaskbarIcon = Instantiate(taskbarIconPrefab, slot.position, Quaternion.identity, slot);
+            if (explorerWindowPrefab == null) return;
 
-            // Clicking taskbar icon toggles the window
-            Button btn = activeExplorerTaskbarIcon.GetComponent<Button>();
-            if (btn != null)
+            GameObject windowInstance = Instantiate(explorerWindowPrefab, canvasTransform);
+            activeExplorerWindow = windowInstance.GetComponent<WindowController>();
+
+            if (activeExplorerWindow != null)
             {
-                btn.onClick.AddListener(explorerWindow.ToggleWindow);
+                // Subscribe to close event
+                activeExplorerWindow.OnWindowClosed += OnExplorerClosed;
             }
+
+            // 2. Spawn the taskbar icon
+            if (activeExplorerTaskbarIcon == null && taskbarIconPositions.Length > 0)
+            {
+                Transform slot = taskbarIconPositions[0].transform;
+                activeExplorerTaskbarIcon = Instantiate(taskbarIconPrefab, slot.position, Quaternion.identity, slot);
+
+                // Taskbar icon click toggles the active window visibility
+                Button btn = activeExplorerTaskbarIcon.GetComponent<Button>();
+                if (btn != null && activeExplorerWindow != null)
+                {
+                    btn.onClick.AddListener(activeExplorerWindow.ToggleWindow);
+                }
+            }
+        }
+        else
+        {
+            // If window already exists, ensure it's visible/focused
+            activeExplorerWindow.OpenWindow();
+            activeExplorerWindow.transform.SetAsLastSibling(); // Brings to front in UI
         }
     }
 
     private void OnExplorerClosed()
     {
+        // Clean up taskbar icon when the window is closed and destroyed
         if (activeExplorerTaskbarIcon != null)
         {
             Destroy(activeExplorerTaskbarIcon);
             activeExplorerTaskbarIcon = null;
+        }
+
+        if (activeExplorerWindow != null)
+        {
+            activeExplorerWindow.OnWindowClosed -= OnExplorerClosed;
+            activeExplorerWindow = null;
         }
     }
 }

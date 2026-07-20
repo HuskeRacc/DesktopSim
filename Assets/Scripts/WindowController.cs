@@ -23,13 +23,12 @@ public class WindowController : MonoBehaviour
 
     public void CloseWindow()
     {
-        gameObject.SetActive(false);
         OnWindowClosed?.Invoke(); // Notify manager
+        Destroy(gameObject); // Destroy the window
     }
 
     public void ToggleWindow()
     {
-        if (gameObject.activeSelf) CloseWindow();
-        else OpenWindow();
+        gameObject.SetActive(!gameObject.activeSelf);
     }
 }
