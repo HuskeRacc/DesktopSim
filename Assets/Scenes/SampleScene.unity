@@ -170,8 +170,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::IconManager
   desktopIconPrefab: {fileID: 5300042318619130731, guid: 931995609e3439c4ab1980731e2828c7, type: 3}
   taskbarIconPrefab: {fileID: 6305995553692463724, guid: d2ee31599f880c44eb0181a971e6d768, type: 3}
-  explorerWindowPrefab: {fileID: 7037751595847542923, guid: 98b1710ad71b64b45965139ff769f7ac, type: 3}
   canvasTransform: {fileID: 1261889476}
+  appWindowConfigs:
+  - appType: 1
+    windowPrefab: {fileID: 7037751595847542923, guid: 98b1710ad71b64b45965139ff769f7ac, type: 3}
+  - appType: 0
+    windowPrefab: {fileID: 7808830531279284433, guid: 416da2a30d2925547bbff9f2a47d7b63, type: 3}
   desktopIconPositions:
   - {fileID: 1295461741}
   - {fileID: 1716842754}
