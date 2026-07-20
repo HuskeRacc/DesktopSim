@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 3570128479423697365}
   - component: {fileID: 1173793902882901706}
   - component: {fileID: 2876882289408490996}
+  - component: {fileID: 717574655853140998}
   m_Layer: 5
   m_Name: TerminalWindow
   m_TagString: Untagged
@@ -375,6 +376,19 @@ MonoBehaviour:
   inputField: {fileID: 42777893857471413}
   scrollRect: {fileID: 2298710615002811734}
   userPrefix: '<color=#00FF00>user@os:~$</color> '
+--- !u!114 &717574655853140998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432663863477622461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc5c5cc2725b6d44aac180a855a2489, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  terminalController: {fileID: 2876882289408490996}
 --- !u!1 &748988753264916891
 GameObject:
   m_ObjectHideFlags: 0

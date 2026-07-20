@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using System.Reflection;
+using System.Linq;
 
 public class TerminalController : MonoBehaviour
 {
@@ -30,10 +33,20 @@ public class TerminalController : MonoBehaviour
 
     private void RegisterCommands()
     {
-        // Simply register command instances here!
-        Register(new HelpCommand());
-        Register(new ClearCommand());
-        Register(new EchoCommand());
+            // Find all non-abstract classes in the project that implement ITerminalCommand
+        var commandTypes = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(t => typeof(ITerminalCommand).IsAssignableFrom(t) 
+                    && !t.IsInterface 
+                    && !t.IsAbstract);
+
+        foreach (var type in commandTypes)
+        {
+            // Automatically create an instance of each command class
+            if (Activator.CreateInstance(type) is ITerminalCommand command)
+            {
+                Register(command);
+            }
+        }
     }
 
     private void Register(ITerminalCommand command)
