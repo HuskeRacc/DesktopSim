@@ -224,6 +224,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303cc4cc0fec5044e9094778b0090388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowManager
+  popupConfigs:
+  - popupID: rajii
+    popupPrefab: {fileID: 2376224519576989762, guid: c2edbb3f892a30144a617d78a452ec99, type: 3}
+    popupIcon: {fileID: 21300000, guid: ddeb276e0055bf043acba6e2f02d648e, type: 3}
   canvasTransform: {fileID: 1261889476}
   appWindowConfigs:
   - appType: 1
@@ -236,9 +240,12 @@ MonoBehaviour:
     windowPrefab: {fileID: 432663863477622461, guid: a0e9657b0f409df40b2af6c760e1bcdf, type: 3}
   - appType: 0
     windowPrefab: {fileID: 0}
-  taskbarIconPrefab: {fileID: 0}
-  taskbarIconPositions: []
-  availableApps: []
+  taskbarIconPrefab: {fileID: 6305995553692463724, guid: d2ee31599f880c44eb0181a971e6d768, type: 3}
+  taskbarIconPositions:
+  - {fileID: 1797599154}
+  - {fileID: 809941093}
+  - {fileID: 1334929866}
+  - {fileID: 350259586}
 --- !u!1 &313616162
 GameObject:
   m_ObjectHideFlags: 0

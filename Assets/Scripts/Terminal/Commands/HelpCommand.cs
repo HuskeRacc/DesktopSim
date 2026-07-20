@@ -8,7 +8,9 @@ public class HelpCommand : ITerminalCommand
         terminal.PrintLine("Available commands:");
         foreach (var cmd in terminal.CommandRegistry.Values)
         {
-            terminal.PrintLine($"  <color=#FFFF00>{cmd.Name,-10}</color> - {cmd.Description}");
+            if (cmd.IsHidden) continue; // Skip secret commands!
+
+            terminal.PrintLine($"{cmd.Name} - {cmd.Description}");
         }
     }
 }
