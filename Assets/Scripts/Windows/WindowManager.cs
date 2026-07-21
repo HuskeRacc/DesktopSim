@@ -60,6 +60,7 @@ public class WindowManager : MonoBehaviour
 
         GameObject windowInstance = Instantiate(prefabToSpawn, canvasTransform);
         windowInstance.transform.localScale = Vector3.one;
+        windowInstance.transform.SetAsLastSibling();
 
         WindowController windowController = windowInstance.GetComponent<WindowController>();
         if (windowController != null)
@@ -72,8 +73,7 @@ public class WindowManager : MonoBehaviour
         // Delegate taskbar icon creation to IconManager
         if (IconManager.Instance != null)
         {
-            int currentTaskbarIndex = GetTotalActiveTaskbarCount();
-            GameObject taskbarIcon = IconManager.Instance.CreateTaskbarIcon(appType, currentTaskbarIndex, windowController);
+            GameObject taskbarIcon = IconManager.Instance.CreateTaskbarIcon(appType, windowController);
             if (taskbarIcon != null)
             {
                 activeTaskbarIcons[appType] = taskbarIcon;
@@ -91,6 +91,7 @@ public class WindowManager : MonoBehaviour
 
                 GameObject windowInstance = Instantiate(config.popupPrefab, canvasTransform);
                 windowInstance.transform.localScale = Vector3.one;
+                windowInstance.transform.SetAsLastSibling();
 
                 WindowController windowController = windowInstance.GetComponent<WindowController>();
                 if (windowController != null)
@@ -99,11 +100,10 @@ public class WindowManager : MonoBehaviour
                     windowController.OpenWindow();
                 }
 
-                // Delegate custom popup taskbar creation to IconManager
+                // Delegate custom popup taskbar creation to IconManager (Removed the index here!)
                 if (IconManager.Instance != null)
                 {
-                    int currentTaskbarIndex = GetTotalActiveTaskbarCount();
-                    GameObject taskbarIcon = IconManager.Instance.CreateCustomTaskbarIcon(config.popupIcon, currentTaskbarIndex, windowController);
+                    GameObject taskbarIcon = IconManager.Instance.CreateCustomTaskbarIcon(config.popupIcon, windowController);
                     if (taskbarIcon != null)
                     {
                         activePopupTaskbarIcons[popupID] = taskbarIcon;
@@ -130,11 +130,6 @@ public class WindowManager : MonoBehaviour
         }
     }
 
-    private int GetTotalActiveTaskbarCount()
-    {
-        return activeTaskbarIcons.Count + activePopupTaskbarIcons.Count;
-    }
-
     private void OnWindowClosed(AppType appType)
     {
         if (activeTaskbarIcons.TryGetValue(appType, out GameObject taskbarIcon))
@@ -147,12 +142,6 @@ public class WindowManager : MonoBehaviour
         {
             activeWindows.Remove(appType);
         }
-
-        // Let IconManager recalculate and clean up the remaining taskbar slots automatically
-        if (IconManager.Instance != null)
-        {
-            IconManager.Instance.RefreshTaskbarSlots();
-        }
     }
 
     private void OnPopupClosed(string popupID)
@@ -161,12 +150,6 @@ public class WindowManager : MonoBehaviour
         {
             if (taskbarIcon != null) Destroy(taskbarIcon);
             activePopupTaskbarIcons.Remove(popupID);
-        }
-
-        // This calls the parameterless version so it safely recounts the remaining icons
-        if (IconManager.Instance != null)
-        {
-            IconManager.Instance.RefreshTaskbarSlots();
         }
     }
 
