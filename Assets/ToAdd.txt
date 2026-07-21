@@ -2,3 +2,7 @@ Player Money counter in bottom right
 Crypto counter?
 Convert crypto to money?
 Crypto market?
+
+animation for spending money:
+Dollar sign floating away with a - ("-$") maybe showing the value lost?
+same with crypto. ("-BTC")

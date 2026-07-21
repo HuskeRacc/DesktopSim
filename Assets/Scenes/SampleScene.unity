@@ -214,25 +214,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &134331533
-RectTransform:
+--- !u!4 &134331533
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134331532}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3196759, y: 0.3196759, z: 0.3196759}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960.3476, y: 540}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &134331534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,30 +250,44 @@ MonoBehaviour:
     iconSprite: {fileID: 21300000, guid: a47fb4deda25da844b4271898316f215, type: 3}
     isInstalled: 1
     appName: Recycle Bin
+    priceUSD: 0
+    priceBTC: 0
   - appType: 1
     iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
     isInstalled: 1
     appName: Settings
+    priceUSD: 0
+    priceBTC: 0
   - appType: 2
     iconSprite: {fileID: 21300000, guid: 23743e22f298b4a4dbddd4fb13eeb9f4, type: 3}
     isInstalled: 1
     appName: Explorer
+    priceUSD: 0
+    priceBTC: 0
   - appType: 3
     iconSprite: {fileID: 21300000, guid: df9ec043283924249b1584c005a14941, type: 3}
     isInstalled: 1
     appName: Browser
+    priceUSD: 0
+    priceBTC: 0
   - appType: 4
     iconSprite: {fileID: 21300000, guid: f8cb537d3b8103e4389df720c5273931, type: 3}
     isInstalled: 1
     appName: Terminal
+    priceUSD: 0
+    priceBTC: 0
   - appType: 5
     iconSprite: {fileID: 21300000, guid: f44bc8deb8753144bad70e84080f44d3, type: 3}
     isInstalled: 1
     appName: Notes
+    priceUSD: 0
+    priceBTC: 0
   - appType: 6
     iconSprite: {fileID: 21300000, guid: ff14b6548dbfb0b4b916af6822d5e6e9, type: 3}
     isInstalled: 0
     appName: BTCMiner
+    priceUSD: 25
+    priceBTC: 0
 --- !u!114 &134331535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -134.97925, y: 0}
+  m_AnchoredPosition: {x: -134.97998, y: 0}
   m_SizeDelta: {x: 181.15869, y: 63.277313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &313616164
@@ -847,7 +857,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 72.53369}
+  m_SizeDelta: {x: 0, y: 79.498}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &962165434
 MonoBehaviour:
@@ -1122,8 +1132,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2117113577}
-  - {fileID: 962165433}
   - {fileID: 1467424764}
+  - {fileID: 962165433}
   - {fileID: 4259134226232844215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1166,8 +1176,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -353.98788, y: 0}
-  m_SizeDelta: {x: -863.636, y: 0}
+  m_AnchoredPosition: {x: -353.98788, y: 4.007}
+  m_SizeDelta: {x: -863.636, y: -8.015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1281944722
 CanvasRenderer:
@@ -1203,6 +1213,54 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
+--- !u!1 &1351681616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1351681617}
+  - component: {fileID: 1351681618}
+  m_Layer: 5
+  m_Name: ResourceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1351681617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351681616}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1351681618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351681616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e8ce3eec100fa649806d4e341200267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  currentUSD: 35
+  currentBTC: 0
+  usdText: {fileID: 1441345251}
+  btcText: {fileID: 157205801}
 --- !u!1 &1441345249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1581,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.091999054}
+  m_AnchoredPosition: {x: 0, y: 3.7}
   m_SizeDelta: {x: 90.118, y: 90.118}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1692611873
@@ -1601,7 +1659,7 @@ GameObject:
   - component: {fileID: 1708917668}
   - component: {fileID: 1708917669}
   m_Layer: 5
-  m_Name: PlayerStats
+  m_Name: PlayerCurrency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1627,7 +1685,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -288.39996, y: 0.091999054}
+  m_AnchoredPosition: {x: -316.14, y: 0}
   m_SizeDelta: {x: 181.15869, y: 63.277313}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1708917669
@@ -2541,5 +2599,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1675384752}
   - {fileID: 330585546}
+  - {fileID: 1351681617}
   - {fileID: 134331533}
   - {fileID: 1261889476}

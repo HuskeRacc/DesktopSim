@@ -1,0 +1,19 @@
+To add money (e.g., your Bitcoin Miner):
+
+C#
+// Adds 0.001 BTC and automatically updates the UI
+ResourceManager.Instance.AddBitcoin(0.001f);
+
+
+To buy something (e.g., your App Store Download Button):
+
+C#
+// Tries to spend $15. If they have enough, it deducts it and runs the code inside.
+if (ResourceManager.Instance.SpendUSD(15.00f)) 
+{
+    IconManager.Instance.InstallApp(appToDownload);
+}
+else
+{
+    Debug.Log("Player is too broke to buy this app.");
+}

@@ -84,10 +84,21 @@ public class IconManager : MonoBehaviour
             {
                 if (!availableApps[i].isInstalled)
                 {
-                    // Mark it as owned and plop it on the desktop instantly
-                    availableApps[i].isInstalled = true; 
-                    SpawnDesktopIcon(availableApps[i]);
-                    Debug.Log($"[IconManager] Successfully installed {appType}!");
+                    // Check if the app is free (0 cost) OR if the player has enough money
+                    if (availableApps[i].priceUSD <= 0f || ResourceManager.Instance.SpendUSD(availableApps[i].priceUSD))
+                    {
+                        // Transaction successful (or it was free)! Install it.
+                        availableApps[i].isInstalled = true; 
+                        SpawnDesktopIcon(availableApps[i]);
+                        Debug.Log($"[IconManager] Successfully bought and installed {appType}!");
+                    }
+                    else
+                    {
+                        // Transaction failed
+                        Debug.LogWarning($"[IconManager] Player cannot afford {appType}! It costs ${availableApps[i].priceUSD}");
+                        
+                        // Optional: You could trigger a popup window here saying "Not enough funds!"
+                    }
                 }
                 else
                 {
