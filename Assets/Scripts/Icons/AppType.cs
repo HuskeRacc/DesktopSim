@@ -6,5 +6,6 @@ public enum AppType
     Browser,
     Terminal,
     Notepad,
-    BTCMiner
+    BTCMiner,
+    CryptoMarket
 }

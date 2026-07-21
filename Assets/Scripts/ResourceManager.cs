@@ -29,6 +29,13 @@ public class ResourceManager : MonoBehaviour
     }
 
     // -- USD METHODS --
+
+    public void AddUSD(float amount)
+    {
+        currentUSD += amount;
+        UpdateUI();
+    }
+
     public bool SpendUSD(float amount)
     {
         if (currentUSD >= amount)
@@ -45,6 +52,13 @@ public class ResourceManager : MonoBehaviour
     public float GetUSD() => currentUSD;
 
     // -- BTC METHODS --
+
+    public void AddBitcoin(float amount)
+    {
+        currentBTC += amount;
+        UpdateUI();
+    }
+
     public bool SpendBTC(float amount)
     {
         if (currentBTC >= amount)
