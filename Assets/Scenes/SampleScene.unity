@@ -2072,6 +2072,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6973211555640771817, guid: 469b04cbf1e114b4690589c84590bcce, type: 3}
+      propertyPath: btcToUsdRate
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7492587152516499523, guid: 469b04cbf1e114b4690589c84590bcce, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

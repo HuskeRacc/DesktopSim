@@ -5,7 +5,11 @@ using UnityEngine.UI;
 public class CryptoExchange : MonoBehaviour
 {
     [Header("Market Settings")]
-    public float btcToUsdRate = 50.00f; // 1 BTC = $50.00
+    [Tooltip("How much USD it costs the player to BUY 1 BTC")]
+    public float btcBuyRate = 1050.00f; 
+    
+    [Tooltip("How much USD the player gets when they SELL 1 BTC")]
+    public float btcSellRate = 950.00f; 
 
     [Header("Global UI")]
     [SerializeField] private TextMeshProUGUI exchangeRateText;
@@ -46,7 +50,8 @@ public class CryptoExchange : MonoBehaviour
     {
         if (exchangeRateText != null)
         {
-            exchangeRateText.text = $"1BTC = ${btcToUsdRate.ToString("F2")}";
+            // Displays: "Buy: $1050.00 | Sell: $950.00"
+            exchangeRateText.text = $"Buy: ${btcBuyRate.ToString("F2")} | Sell: ${btcSellRate.ToString("F2")}";
         }
     }
 
@@ -59,7 +64,7 @@ public class CryptoExchange : MonoBehaviour
         // sliderValue is between 0 and 1 (0% to 100% of their USD)
         float maxUsd = ResourceManager.Instance.GetUSD();
         float usdToSpend = maxUsd * sliderValue;
-        float btcToGet = usdToSpend / btcToUsdRate;
+        float btcToGet = usdToSpend / btcBuyRate; // Using Buy Rate
 
         // Show both the cost and the amount of BTC they will get
         buyText.text = $"Cost: ${usdToSpend.ToString("F2")}\nGet: {btcToGet.ToString("F4")} BTC";
@@ -72,7 +77,7 @@ public class CryptoExchange : MonoBehaviour
     {
         float maxUsd = ResourceManager.Instance.GetUSD();
         float usdToSpend = maxUsd * buySlider.value;
-        float btcToGet = usdToSpend / btcToUsdRate;
+        float btcToGet = usdToSpend / btcBuyRate; // Using Buy Rate
 
         if (usdToSpend > 0 && ResourceManager.Instance.SpendUSD(usdToSpend))
         {
@@ -93,7 +98,7 @@ public class CryptoExchange : MonoBehaviour
         // sliderValue is between 0 and 1 (0% to 100% of their BTC)
         float maxBtc = ResourceManager.Instance.GetBTC();
         float btcToSell = maxBtc * sliderValue;
-        float usdToGet = btcToSell * btcToUsdRate;
+        float usdToGet = btcToSell * btcSellRate; // Using Sell Rate
 
         // Show both the BTC being sold and the USD they will get
         sellText.text = $"Sell: {btcToSell.ToString("F4")} BTC\nGet: ${usdToGet.ToString("F2")}";
@@ -106,7 +111,7 @@ public class CryptoExchange : MonoBehaviour
     {
         float maxBtc = ResourceManager.Instance.GetBTC();
         float btcToSell = maxBtc * sellSlider.value;
-        float usdToGet = btcToSell * btcToUsdRate;
+        float usdToGet = btcToSell * btcSellRate; // Using Sell Rate
 
         if (btcToSell > 0 && ResourceManager.Instance.SpendBTC(btcToSell))
         {
