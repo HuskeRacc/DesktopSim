@@ -184,16 +184,7 @@ MonoBehaviour:
   - {fileID: 1071656987}
   - {fileID: 1190785867}
   - {fileID: 1481663322}
-  taskbarIconPositions:
-  - {fileID: 1797599154}
-  - {fileID: 809941093}
-  - {fileID: 1334929866}
-  - {fileID: 350259586}
-  - {fileID: 1596019691}
-  - {fileID: 1623041569}
-  - {fileID: 1178797524}
-  - {fileID: 2026191464}
-  - {fileID: 1121079646}
+  taskbarContainer: {fileID: 1281944720}
   availableApps:
   - appType: 0
     iconSprite: {fileID: 21300000, guid: a47fb4deda25da844b4271898316f215, type: 3}
