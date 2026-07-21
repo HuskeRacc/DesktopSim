@@ -177,22 +177,32 @@ MonoBehaviour:
   availableApps:
   - appType: 0
     iconSprite: {fileID: 21300000, guid: a47fb4deda25da844b4271898316f215, type: 3}
+    isInstalled: 1
     appName: Recycle Bin
   - appType: 1
     iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
+    isInstalled: 1
     appName: Settings
   - appType: 2
     iconSprite: {fileID: 21300000, guid: 23743e22f298b4a4dbddd4fb13eeb9f4, type: 3}
+    isInstalled: 1
     appName: Explorer
   - appType: 3
     iconSprite: {fileID: 21300000, guid: df9ec043283924249b1584c005a14941, type: 3}
+    isInstalled: 1
     appName: Browser
   - appType: 4
     iconSprite: {fileID: 21300000, guid: f8cb537d3b8103e4389df720c5273931, type: 3}
+    isInstalled: 1
     appName: Terminal
   - appType: 5
     iconSprite: {fileID: 21300000, guid: f44bc8deb8753144bad70e84080f44d3, type: 3}
+    isInstalled: 1
     appName: Notes
+  - appType: 6
+    iconSprite: {fileID: 21300000, guid: ff14b6548dbfb0b4b916af6822d5e6e9, type: 3}
+    isInstalled: 0
+    appName: BTCMiner
 --- !u!114 &134331535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +249,8 @@ MonoBehaviour:
     windowPrefab: {fileID: 0}
   - appType: 5
     windowPrefab: {fileID: 1722519484048643514, guid: 23fa9435dd52ef04d90e4f674d723fee, type: 3}
+  - appType: 6
+    windowPrefab: {fileID: 0}
 --- !u!114 &134331537
 MonoBehaviour:
   m_ObjectHideFlags: 0

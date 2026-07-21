@@ -1,3 +1,4 @@
-Add a notes file on desktop
-
-Holding tutorial/tips
+Player Money counter in bottom right
+Crypto counter?
+Convert crypto to money?
+Crypto market?

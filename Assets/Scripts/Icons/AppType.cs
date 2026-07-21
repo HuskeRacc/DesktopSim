@@ -5,5 +5,6 @@ public enum AppType
     Explorer,
     Browser,
     Terminal,
-    Notepad
+    Notepad,
+    BTCMiner
 }

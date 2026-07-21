@@ -2520,7 +2520,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000006942025}
+  m_AnchoredPosition: {x: 0, y: 0.0009960954}
   m_SizeDelta: {x: 0, y: 525.887}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6691141304138270264
@@ -4100,7 +4100,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 3032492331450761203}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999446
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4999,7 +4999,7 @@ RectTransform:
   m_Father: {fileID: 8392630382925209869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9999446}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5290,6 +5290,7 @@ GameObject:
   - component: {fileID: 2556909924966804496}
   - component: {fileID: 8868205446214452464}
   - component: {fileID: 7208992167512763667}
+  - component: {fileID: 2842254485905390434}
   m_Layer: 5
   m_Name: DownloadButton
   m_TagString: Untagged
@@ -5399,6 +5400,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2842254485905390434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5455757570995952041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a839ace1cafb24bae95c27649d2cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  appToDownload: 6
 --- !u!1 &5630370482976897592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,6 +8574,7 @@ GameObject:
   - component: {fileID: 1053918968476325332}
   - component: {fileID: 157964871536837468}
   - component: {fileID: 4247147097613740599}
+  - component: {fileID: 8976470079435090390}
   m_Layer: 5
   m_Name: DownloadButton
   m_TagString: Untagged
@@ -8669,6 +8684,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8976470079435090390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8904636682578525889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a839ace1cafb24bae95c27649d2cac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DownloadButton
+  appToDownload: 0
 --- !u!1 &9003381083264749226
 GameObject:
   m_ObjectHideFlags: 0

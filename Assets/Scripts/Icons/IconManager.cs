@@ -40,26 +40,32 @@ public class IconManager : MonoBehaviour
             return;
         }
 
-        foreach (var app in availableApps)
+        // Loop through the database and ONLY spawn apps marked as installed
+        for (int i = 0; i < availableApps.Length; i++)
         {
-            // Instantiate directly into the Grid Layout Group container
-            GameObject spawnedIcon = Instantiate(desktopIconPrefab, desktopIconsContainer);
-            
-            // Ensure scale is correct after spawning into a layout group
-            spawnedIcon.transform.localScale = Vector3.one;
-
-            DesktopIconItem iconItem = spawnedIcon.GetComponent<DesktopIconItem>();
-            if (iconItem != null)
+            if (availableApps[i].isInstalled)
             {
-                iconItem.SetupIcon(app, OnIconClicked);
+                SpawnDesktopIcon(availableApps[i]);
             }
-
-            Image iconImage = spawnedIcon.GetComponentInChildren<Image>();
-            if (iconImage != null) iconImage.sprite = app.iconSprite;
-
-            TextMeshProUGUI appText = spawnedIcon.GetComponentInChildren<TextMeshProUGUI>();
-            if (appText != null) appText.text = app.appName;
         }
+    }
+
+    private void SpawnDesktopIcon(AppData app)
+    {
+        GameObject spawnedIcon = Instantiate(desktopIconPrefab, desktopIconsContainer);
+        spawnedIcon.transform.localScale = Vector3.one;
+
+        DesktopIconItem iconItem = spawnedIcon.GetComponent<DesktopIconItem>();
+        if (iconItem != null)
+        {
+            iconItem.SetupIcon(app, OnIconClicked);
+        }
+
+        Image iconImage = spawnedIcon.GetComponentInChildren<Image>();
+        if (iconImage != null) iconImage.sprite = app.iconSprite;
+
+        TextMeshProUGUI appText = spawnedIcon.GetComponentInChildren<TextMeshProUGUI>();
+        if (appText != null) appText.text = app.appName;
     }
 
     private void OnIconClicked(AppType clickedApp)
@@ -68,6 +74,29 @@ public class IconManager : MonoBehaviour
         {
             WindowManager.Instance.OpenAppWindow(clickedApp);
         }
+    }
+
+    public void InstallApp(AppType appType)
+    {
+        for (int i = 0; i < availableApps.Length; i++)
+        {
+            if (availableApps[i].appType == appType)
+            {
+                if (!availableApps[i].isInstalled)
+                {
+                    // Mark it as owned and plop it on the desktop instantly
+                    availableApps[i].isInstalled = true; 
+                    SpawnDesktopIcon(availableApps[i]);
+                    Debug.Log($"[IconManager] Successfully installed {appType}!");
+                }
+                else
+                {
+                    Debug.Log($"[IconManager] {appType} is already installed.");
+                }
+                return;
+            }
+        }
+        Debug.LogWarning($"[IconManager] Could not find {appType} in the availableApps database!");
     }
 
     public AppData GetAppData(AppType appType)

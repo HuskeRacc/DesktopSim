@@ -5,5 +5,6 @@ public struct AppData
 {
     public AppType appType;
     public Sprite iconSprite;
+    public bool isInstalled;
     public string appName;
 }
