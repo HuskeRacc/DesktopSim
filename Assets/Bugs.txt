@@ -1,3 +1,0 @@
-Player can move windows off screen and cant retrieve them or reset
-
-clicking a window beneath other windows doesn't bring it to the front

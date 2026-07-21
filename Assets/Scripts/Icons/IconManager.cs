@@ -10,9 +10,9 @@ public class IconManager : MonoBehaviour
     [SerializeField] private GameObject desktopIconPrefab;
     [SerializeField] private GameObject taskbarIconPrefab;
 
-    [Header("Containers & Positions")]
-    [SerializeField] private GameObject[] desktopIconPositions;
-    [SerializeField] private Transform taskbarContainer; // Drag your 'IconSlots' parent object here!
+    [Header("Containers")]
+    [SerializeField] private Transform desktopIconsContainer; // Drag your DesktopIcons grid object here!
+    [SerializeField] private Transform taskbarContainer;      // Drag your taskbar layout object here!
 
     [Header("Available Apps")]
     [SerializeField] private AppData[] availableApps;
@@ -29,28 +29,36 @@ public class IconManager : MonoBehaviour
 
     private void Start()
     {
-        Initialise();
+        InitialiseDesktopIcons();
     }
 
-    private void Initialise()
+    private void InitialiseDesktopIcons()
     {
-        for (int i = 0; i < availableApps.Length; i++)
+        if (desktopIconsContainer == null)
         {
-            if (i >= desktopIconPositions.Length) break;
+            Debug.LogWarning("[IconManager] Desktop Icons Container is not assigned!");
+            return;
+        }
 
-            GameObject spawnedIcon = Instantiate(desktopIconPrefab, desktopIconPositions[i].transform.position, Quaternion.identity, desktopIconPositions[i].transform);
+        foreach (var app in availableApps)
+        {
+            // Instantiate directly into the Grid Layout Group container
+            GameObject spawnedIcon = Instantiate(desktopIconPrefab, desktopIconsContainer);
+            
+            // Ensure scale is correct after spawning into a layout group
+            spawnedIcon.transform.localScale = Vector3.one;
 
             DesktopIconItem iconItem = spawnedIcon.GetComponent<DesktopIconItem>();
             if (iconItem != null)
             {
-                iconItem.SetupIcon(availableApps[i], OnIconClicked);
+                iconItem.SetupIcon(app, OnIconClicked);
             }
 
             Image iconImage = spawnedIcon.GetComponentInChildren<Image>();
-            if (iconImage != null) iconImage.sprite = availableApps[i].iconSprite;
+            if (iconImage != null) iconImage.sprite = app.iconSprite;
 
             TextMeshProUGUI appText = spawnedIcon.GetComponentInChildren<TextMeshProUGUI>();
-            if (appText != null) appText.text = availableApps[i].appName;
+            if (appText != null) appText.text = app.appName;
         }
     }
 
@@ -67,7 +75,7 @@ public class IconManager : MonoBehaviour
         return System.Array.Find(availableApps, a => a.appType == appType);
     }
 
-    // --- TASKBAR MANAGEMENT (No Slots Needed!) ---
+    // --- TASKBAR MANAGEMENT ---
 
     public GameObject CreateTaskbarIcon(AppType appType, WindowController windowController)
     {

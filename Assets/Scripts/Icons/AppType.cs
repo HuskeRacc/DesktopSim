@@ -4,5 +4,6 @@ public enum AppType
     Settings,
     Explorer,
     Browser,
-    Terminal
+    Terminal,
+    Notepad
 }
