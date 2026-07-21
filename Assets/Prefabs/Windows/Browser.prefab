@@ -1721,6 +1721,7 @@ GameObject:
   - component: {fileID: 3757160902308624410}
   - component: {fileID: 968603248870674104}
   - component: {fileID: 8459585383929744651}
+  - component: {fileID: 3826328365441858993}
   - component: {fileID: 6879686117157600013}
   m_Layer: 5
   m_Name: Browser
@@ -1803,6 +1804,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   closeButton: {fileID: 1583384552222667611}
   minimizeButton: {fileID: 6636608337256045868}
+--- !u!114 &3826328365441858993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3006401870198505143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a6834347f894848b47e78d8c5be31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindowFocusHandler
+  rootWindowTransform: {fileID: 0}
 --- !u!114 &6879686117157600013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2148,7 +2162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000018086626}
+  m_AnchoredPosition: {x: 0, y: 0.00027187515}
   m_SizeDelta: {x: 0, y: 525.887}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6691141304138270264
@@ -4177,7 +4191,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2097584707904229042}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9999983
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

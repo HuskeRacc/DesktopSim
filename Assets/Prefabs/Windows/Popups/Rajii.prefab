@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 4148052095516350391}
   - component: {fileID: 2752281771424880909}
   - component: {fileID: 5464277361978297929}
+  - component: {fileID: 7888497145756898508}
   m_Layer: 5
   m_Name: Rajii
   m_TagString: Untagged
@@ -212,6 +213,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WindowController
   closeButton: {fileID: 1676291851132365291}
   minimizeButton: {fileID: 3958784370599608818}
+--- !u!114 &7888497145756898508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2376224519576989762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a6834347f894848b47e78d8c5be31f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindowFocusHandler
+  rootWindowTransform: {fileID: 8638965254833210168}
 --- !u!1 &4040318282816562882
 GameObject:
   m_ObjectHideFlags: 0
