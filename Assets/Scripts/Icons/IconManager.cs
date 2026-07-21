@@ -76,7 +76,7 @@ public class IconManager : MonoBehaviour
         }
     }
 
-    public void InstallApp(AppType appType)
+    public bool InstallApp(AppType appType)
     {
         for (int i = 0; i < availableApps.Length; i++)
         {
@@ -84,30 +84,31 @@ public class IconManager : MonoBehaviour
             {
                 if (!availableApps[i].isInstalled)
                 {
-                    // Check if the app is free (0 cost) OR if the player has enough money
                     if (availableApps[i].priceUSD <= 0f || ResourceManager.Instance.SpendUSD(availableApps[i].priceUSD))
                     {
-                        // Transaction successful (or it was free)! Install it.
+                        // Success!
                         availableApps[i].isInstalled = true; 
                         SpawnDesktopIcon(availableApps[i]);
                         Debug.Log($"[IconManager] Successfully bought and installed {appType}!");
+                        return true; 
                     }
                     else
                     {
-                        // Transaction failed
-                        Debug.LogWarning($"[IconManager] Player cannot afford {appType}! It costs ${availableApps[i].priceUSD}");
-                        
-                        // Optional: You could trigger a popup window here saying "Not enough funds!"
+                        // Failed to buy
+                        Debug.LogWarning($"[IconManager] Player cannot afford {appType}!");
+                        return false; 
                     }
                 }
                 else
                 {
+                    // Already installed
                     Debug.Log($"[IconManager] {appType} is already installed.");
+                    return true; 
                 }
-                return;
             }
         }
         Debug.LogWarning($"[IconManager] Could not find {appType} in the availableApps database!");
+        return false;
     }
 
     public AppData GetAppData(AppType appType)
