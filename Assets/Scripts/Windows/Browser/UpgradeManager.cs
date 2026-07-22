@@ -27,8 +27,8 @@ public class UpgradeItem
     [Header("Effect")]
     public float effectAmount = 0.5f;
     
-    [Tooltip("Drag the UI Panel or App here that you want to unlock")]
-    public GameObject targetUnlockable; // <-- Added to hold the UI object
+[Tooltip("Type the exact ID to unlock (e.g., 'SpeedMonitor')")]
+    public string unlockID;
 
     [Header("UI References")]
     public Button upgradeButton;
@@ -59,12 +59,6 @@ public class UpgradeManager : MonoBehaviour
             if (item.upgradeButton != null)
             {
                 item.upgradeButton.onClick.AddListener(() => AttemptUpgrade(index));
-            }
-
-            // Hides the UI element immediately when the game starts if it's a UI unlock
-            if (item.upgradeType == UpgradeType.UIUnlock && item.targetUnlockable != null)
-            {
-                item.targetUnlockable.SetActive(false);
             }
 
             UpdateUpgradeUI(item);
@@ -127,9 +121,10 @@ public class UpgradeManager : MonoBehaviour
                 break;
 
             case UpgradeType.UIUnlock:
-                if (item.targetUnlockable != null)
+                if (UnlockManager.Instance != null)
                 {
-                    item.targetUnlockable.SetActive(true); // Turns the UI on!
+                    // Pass the string ID to the bridge!
+                    UnlockManager.Instance.UnlockApp(item.unlockID);
                 }
                 break;
         }
