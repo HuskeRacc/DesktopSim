@@ -1,6 +1,6 @@
 using UnityEngine;
-using TMPro;
 
+// Notice we no longer need 'using TMPro;' up here!
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
@@ -8,10 +8,6 @@ public class ResourceManager : MonoBehaviour
     [Header("Currencies")]
     [SerializeField] private float currentUSD = 0.00f;
     [SerializeField] private float currentBTC = 0.000f;
-
-    [Header("UI References")]
-    [SerializeField] private TextMeshProUGUI usdText;
-    [SerializeField] private TextMeshProUGUI btcText;
 
     private void Awake()
     {
@@ -23,17 +19,11 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        UpdateUI();
-    }
-
     // -- USD METHODS --
 
     public void AddUSD(float amount)
     {
         currentUSD += amount;
-        UpdateUI();
     }
 
     public bool SpendUSD(float amount)
@@ -41,7 +31,6 @@ public class ResourceManager : MonoBehaviour
         if (currentUSD >= amount)
         {
             currentUSD -= amount;
-            UpdateUI();
             return true;
         }
 
@@ -56,7 +45,6 @@ public class ResourceManager : MonoBehaviour
     public void AddBitcoin(float amount)
     {
         currentBTC += amount;
-        UpdateUI();
     }
 
     public bool SpendBTC(float amount)
@@ -64,7 +52,6 @@ public class ResourceManager : MonoBehaviour
         if (currentBTC >= amount)
         {
             currentBTC -= amount;
-            UpdateUI();
             return true;
         }
 
@@ -73,13 +60,4 @@ public class ResourceManager : MonoBehaviour
     }
 
     public float GetBTC() => currentBTC;
-
-    private void UpdateUI()
-    {
-        if (usdText != null)
-            usdText.text = $"{currentUSD:F2}";
-
-        if (btcText != null)
-            btcText.text = $"{currentBTC:F3}";
-    }
 }
