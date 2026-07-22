@@ -17,3 +17,12 @@ else
 {
     Debug.Log("Player is too broke to buy this app.");
 }
+
+
+Internet speed:
+// Upgrade speed
+BrowserManager.Instance.UpgradeInternetSpeed(0.5f);
+
+// Displays the current speed dynamically on your speed test webpage text component
+float currentMbps = BrowserManager.Instance.GetSpeedScoreMBps();
+speedTestText.text = $"Current Connection: {currentMbps} Mbps";

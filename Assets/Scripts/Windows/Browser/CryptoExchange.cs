@@ -24,6 +24,10 @@ public class CryptoExchange : MonoBehaviour
     [SerializeField] private TextMeshProUGUI sellText; // The $0.00 text under the sell slider
     [SerializeField] private Button sellButton;
 
+    [Header("Tracking Varialbes")]
+    private float lastKnownBtc = -1f;
+    private float lastKnownUsd = -1f;
+
     private void OnEnable()
     {
         // Reset sliders to 0 whenever the player opens this page
@@ -44,6 +48,26 @@ public class CryptoExchange : MonoBehaviour
         // Hook up the buttons
         buyButton.onClick.AddListener(ExecuteBuy);
         sellButton.onClick.AddListener(ExecuteSell);
+    }
+
+    private void Update()
+    {
+        if (ResourceManager.Instance == null) return;
+
+        float currentBtc = ResourceManager.Instance.GetBTC();
+        float currentUsd = ResourceManager.Instance.GetUSD();
+
+        // If the player's wallet balance changes (like from background mining), 
+        // force the UI to recalculate based on the new totals!
+        if (currentBtc != lastKnownBtc || currentUsd != lastKnownUsd)
+        {
+            lastKnownBtc = currentBtc;
+            lastKnownUsd = currentUsd;
+
+            // Recalculate using whatever the sliders are currently set to
+            UpdateBuyUI(buySlider.value);
+            UpdateSellUI(sellSlider.value);
+        }
     }
 
     private void UpdateExchangeRateUI()
