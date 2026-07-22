@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 134331536}
   - component: {fileID: 134331537}
   - component: {fileID: 134331538}
+  - component: {fileID: 134331539}
   m_Layer: 5
   m_Name: ScriptManager
   m_TagString: Untagged
@@ -349,6 +350,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speedMonitorUI: {fileID: 2137726881}
+--- !u!114 &134331539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134331532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f9e6cc1767cb464f994c004c58befbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskbarStats
+  dateTimeText: {fileID: 1083469744}
+  netSpeedText: {fileID: 206223593}
+  mineSpeedText: {fileID: 1050165025}
+  usdText: {fileID: 1441345251}
+  btcText: {fileID: 157205801}
 --- !u!1 &157205799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,7 +1030,6 @@ GameObject:
   - component: {fileID: 962165433}
   - component: {fileID: 962165435}
   - component: {fileID: 962165434}
-  - component: {fileID: 962165436}
   m_Layer: 5
   m_Name: Taskbar
   m_TagString: Untagged
@@ -1082,23 +1099,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962165432}
   m_CullTransparentMesh: 1
---- !u!114 &962165436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 962165432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f9e6cc1767cb464f994c004c58befbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskbarStats
-  dateTimeText: {fileID: 1083469744}
-  netSpeedText: {fileID: 206223593}
-  mineSpeedText: {fileID: 1050165025}
-  usdText: {fileID: 1441345251}
-  btcText: {fileID: 157205801}
 --- !u!1 &1050165023
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2537413ebb07e14f9f6c5b72da659de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiningManager
-  miningRatePerSecond: 0.00027
+  miningRatePerSecond: 0.00001
   updateInterval: 1.35
 --- !u!1 &1441345249
 GameObject:

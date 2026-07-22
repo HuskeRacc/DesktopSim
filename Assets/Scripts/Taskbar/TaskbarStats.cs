@@ -70,7 +70,7 @@ public class TaskbarStats : MonoBehaviour
             if (currentUsd != lastKnownUsd)
             {
                 lastKnownUsd = currentUsd;
-                if (usdText != null) usdText.text = $"{currentUsd:F2}"; // Formatting from ResourceManager[cite: 2]
+                if (usdText != null) usdText.text = $"{currentUsd:F3}"; // Formatting from ResourceManager[cite: 2]
             }
 
             // 2. BTC
@@ -78,7 +78,7 @@ public class TaskbarStats : MonoBehaviour
             if (currentBtc != lastKnownBtc)
             {
                 lastKnownBtc = currentBtc;
-                if (btcText != null) btcText.text = $"{currentBtc:F3}"; // Formatting from ResourceManager[cite: 2]
+                if (btcText != null) btcText.text = $"{currentBtc:F5}"; // Formatting from ResourceManager[cite: 2]
             }
         }
     }

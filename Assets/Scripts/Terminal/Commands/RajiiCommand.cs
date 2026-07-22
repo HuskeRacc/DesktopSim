@@ -2,7 +2,7 @@ public class RajiiCommand : ITerminalCommand
 {
     public string Name => "rajii";
     public string Description => "Displays secret image";
-    public bool IsHidden => true;
+    public bool IsHidden { get; set; } = true;
 
     public void Execute(TerminalController terminal, string args)
     {
