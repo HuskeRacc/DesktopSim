@@ -6,9 +6,6 @@ public class PausePopup : MonoBehaviour
     [Header("UI Buttons")]
     [SerializeField] private Button quitButton;
     [SerializeField] private Button continueButton;
-    [SerializeField] private Button lockButton;
-
-    public GameObject lockScreen;
 
     private void Awake()
     {
@@ -21,11 +18,6 @@ public class PausePopup : MonoBehaviour
         {
             continueButton.onClick.AddListener(ContinueGame);
         }
-
-        if (lockButton != null)
-        {
-            lockButton.onClick.AddListener(LockScreen);
-        }
     }
 
     public void ShowPopup()
@@ -33,16 +25,6 @@ public class PausePopup : MonoBehaviour
         TimeManager.Instance.PauseTime();
         gameObject.SetActive(true);
         transform.SetAsLastSibling(); // Ensure it sits on top of all open app windows
-    }
-
-    public void LockScreen()
-    {
-        if(lockScreen != null)
-        {
-            lockScreen.SetActive(true);
-            TimeManager.Instance.PauseTime();
-            gameObject.SetActive(false);
-        }
     }
 
     public void ContinueGame()

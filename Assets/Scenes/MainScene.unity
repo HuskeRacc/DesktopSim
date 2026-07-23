@@ -205,7 +205,6 @@ GameObject:
   - component: {fileID: 134331533}
   - component: {fileID: 134331534}
   - component: {fileID: 134331535}
-  - component: {fileID: 134331536}
   m_Layer: 5
   m_Name: GameManager
   m_TagString: Untagged
@@ -301,19 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   realSecondsPerGameMinute: 1
   isTimePaused: 0
---- !u!114 &134331536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134331532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3d58995d00ae5a4993f1b2f38c43457, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  lockScreen: {fileID: 1389381741}
 --- !u!1 &157205799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,7 +2683,6 @@ GameObject:
   - component: {fileID: 1389381742}
   - component: {fileID: 1389381744}
   - component: {fileID: 1389381743}
-  - component: {fileID: 1389381745}
   m_Layer: 5
   m_Name: LockScreen
   m_TagString: Untagged
@@ -2767,18 +2752,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389381741}
   m_CullTransparentMesh: 1
---- !u!114 &1389381745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389381741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7430a6a89d29d664a958a9b2532e56d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &1437408688
 GameObject:
   m_ObjectHideFlags: 0
@@ -2791,6 +2764,7 @@ GameObject:
   - component: {fileID: 1437408690}
   - component: {fileID: 1437408689}
   - component: {fileID: 1437408692}
+  - component: {fileID: 1437408693}
   m_Layer: 5
   m_Name: WindowManager
   m_TagString: Untagged
@@ -2875,6 +2849,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   notificationPrefab: {fileID: 5276337488434944747, guid: f810dacd7cd2e544cae8715a5c416c08, type: 3}
   notificationContainer: {fileID: 738670592}
+--- !u!114 &1437408693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437408688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9464979628c483640abda2de325ecc9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  lockScreen: {fileID: 1389381741}
 --- !u!1 &1441345249
 GameObject:
   m_ObjectHideFlags: 0
@@ -3342,9 +3329,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1389381745}
-        m_TargetAssemblyTypeName: BootScreenManager, Assembly-CSharp
-        m_MethodName: Login
+      - m_Target: {fileID: 1437408693}
+        m_TargetAssemblyTypeName: LockScreenManager, Assembly-CSharp
+        m_MethodName: CloseLockScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4321,7 +4308,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2076087782}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1437408693}
+        m_TargetAssemblyTypeName: LockScreenManager, Assembly-CSharp
+        m_MethodName: ShowLockScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2076087782
 MonoBehaviour:
   m_ObjectHideFlags: 0
