@@ -8,7 +8,11 @@ public class BillingManager : MonoBehaviour
 
     [Header("Billing Cycle")]
     public int hoursBetweenBills = 4;
-    private int hoursePassed = 0;
+    public int gracePeriodHours = 4;
+
+    private int hoursPassed = 0;
+    private int totalHoursPlayed = 0;
+    private bool isGracePeriodOver = false;
 
     [Header("Electricity")]
     public bool hasElectricityBill = false;
@@ -50,12 +54,33 @@ public class BillingManager : MonoBehaviour
 
     private void HandleHourPassed()
     {
-        hoursePassed++;
-        
-        if (hoursePassed >= hoursBetweenBills)
+        // if grace period is not over
+        if (!isGracePeriodOver)
         {
-            hoursePassed = 0;
+            totalHoursPlayed++;
+            
+            if (totalHoursPlayed >= gracePeriodHours)
+            {
+                isGracePeriodOver = true;
+                hoursPassed = 0; // Reset the standard cycle tracker
+                
+                //Issue the very first bill immediately when the grace period ends?
+                IssueElectricityBill();
+                IssueISPBill();
+            }
+            
 
+            Debug.Log("Bills Grace Period hour: " + totalHoursPlayed  + " / " + gracePeriodHours);
+            return; // Exit out so the standard cycle doesn't tick yet
+        }
+
+        //After Grace period ends
+        hoursPassed++;
+        
+        if (hoursPassed >= hoursBetweenBills)
+        {
+            hoursPassed = 0; 
+            Debug.Log("Bill(s) issued.");
             IssueElectricityBill();
             IssueISPBill();
         }

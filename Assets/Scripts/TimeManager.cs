@@ -54,16 +54,19 @@ public class TimeManager : MonoBehaviour
 
     public void PauseTime()
     {
+        Debug.Log("Time Paused");
         isTimePaused = true;
     }
 
     public void ResumeTime()
     {
+        Debug.Log("Time Resumed");
         isTimePaused = false;
     }
 
     public void ToggleTime()
     {
+        Debug.Log("Time Toggled");
         isTimePaused = !isTimePaused;
     }
 }
