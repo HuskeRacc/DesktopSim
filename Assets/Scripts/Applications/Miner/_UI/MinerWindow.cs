@@ -24,10 +24,10 @@ public class BTCMinerWindow : MonoBehaviour
         if (MiningManager.Instance != null)
         {
             // Display the rate
-            rateText.text = $"{MiningManager.Instance.miningRatePerSecond.ToString("F5")} BTC/s";
+            rateText.text = $"{ResourceManager.FormatHashrate(ResourceManager.Instance.miningRatePerSecond)}";
             
             // Display the total mined by this app
-            minedText.text = $"{MiningManager.Instance.totalMinedThisSession.ToString("F6")}";
+            minedText.text = $"{ResourceManager.Instance.totalMinedThisSession.ToString("F6")}";
 
             // Update button text depending on if it's currently running
             if (buttonText != null)

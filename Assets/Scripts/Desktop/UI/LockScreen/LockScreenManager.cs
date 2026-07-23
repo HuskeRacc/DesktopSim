@@ -31,5 +31,10 @@ public class LockScreenManager : MonoBehaviour
     {
         TimeManager.Instance.ResumeTime();
         lockScreen.SetActive(false);
+
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.SendNotification("Welcome!", "Make sure to check the Help app on your desktop!");
+        }
     }
 }

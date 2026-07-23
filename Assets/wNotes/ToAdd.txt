@@ -1,6 +1,16 @@
+UI upgrade to show the value of held BTC - Half implemented
+This shows in the debug panel
+But there is no UI slot nor upgrade to buy it.
+
+Notification when clicking login
+tells the player to check Help/Tutorial app.
+
 Crypto exchange rate fluctuation
 
 animation for spending money:
 Dollar sign floating away with a - ("-$") maybe showing the value lost?
 same with crypto. ("-BTC")
 
+Uparrow in terminal for last command
+
+Typo in notepad for 'recieve'?

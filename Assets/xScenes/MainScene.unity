@@ -254,112 +254,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101686234}
   m_CullTransparentMesh: 1
---- !u!1 &134331532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 134331533}
-  - component: {fileID: 134331534}
-  - component: {fileID: 134331535}
-  m_Layer: 5
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &134331533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134331532}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &134331534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134331532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb5a9066d469e654a8ea8e97a74c5a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IconManager
-  desktopIconPrefab: {fileID: 5300042318619130731, guid: 931995609e3439c4ab1980731e2828c7, type: 3}
-  taskbarIconPrefab: {fileID: 6305995553692463724, guid: d2ee31599f880c44eb0181a971e6d768, type: 3}
-  desktopIconsContainer: {fileID: 1467424764}
-  taskbarContainer: {fileID: 1281944720}
-  availableApps:
-  - appType: 0
-    iconSprite: {fileID: 21300000, guid: a47fb4deda25da844b4271898316f215, type: 3}
-    isInstalled: 1
-    appName: Recycle Bin
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 2
-    iconSprite: {fileID: 21300000, guid: 23743e22f298b4a4dbddd4fb13eeb9f4, type: 3}
-    isInstalled: 1
-    appName: Explorer
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 1
-    iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
-    isInstalled: 1
-    appName: Settings
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 3
-    iconSprite: {fileID: 21300000, guid: df9ec043283924249b1584c005a14941, type: 3}
-    isInstalled: 1
-    appName: Browser
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 4
-    iconSprite: {fileID: 21300000, guid: f8cb537d3b8103e4389df720c5273931, type: 3}
-    isInstalled: 1
-    appName: Terminal
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 5
-    iconSprite: {fileID: 21300000, guid: f44bc8deb8753144bad70e84080f44d3, type: 3}
-    isInstalled: 1
-    appName: Help/Tutorial
-    priceUSD: 0
-    priceBTC: 0
-  - appType: 6
-    iconSprite: {fileID: 21300000, guid: ff14b6548dbfb0b4b916af6822d5e6e9, type: 3}
-    isInstalled: 0
-    appName: BTCMiner
-    priceUSD: 25
-    priceBTC: 0
---- !u!114 &134331535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134331532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebed0a40d01c9148a2460199955c335, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  realSecondsPerGameMinute: 1
-  isTimePaused: 0
 --- !u!1 &157205799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,10 +1547,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1261889476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 818.3901, y: -380.96002}
-  m_SizeDelta: {x: -1637.1799, y: -920.914}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -141.60992, y: 159.03998}
+  m_SizeDelta: {x: 282.82007, y: 159.086}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &738670593
 CanvasRenderer:
@@ -2637,6 +2531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1351681617}
+  - component: {fileID: 1351681621}
   - component: {fileID: 1351681618}
   - component: {fileID: 1351681619}
   - component: {fileID: 1351681620}
@@ -2676,10 +2571,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   currentUSD: 35
   currentBTC: 0
+  btcBuyRate: 1050
+  btcSellRate: 950
   basePowerDrawRate: 5
   powerPerMiningLevel: 2.5
   costPerKWh: 0.12
   unbilledPower: 0
+  miningRatePerSecond: 0.005
+  totalMinedThisSession: 0
   pageLoadTime: 3
 --- !u!114 &1351681619
 MonoBehaviour:
@@ -2693,7 +2592,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2537413ebb07e14f9f6c5b72da659de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MiningManager
-  miningRatePerSecond: 0.00001
   updateInterval: 1.35
 --- !u!114 &1351681620
 MonoBehaviour:
@@ -2719,6 +2617,20 @@ MonoBehaviour:
   costPerInternetTier: 12.5
   hasFine: 0
   fineCost: 0
+--- !u!114 &1351681621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351681616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ebed0a40d01c9148a2460199955c335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  realSecondsPerGameMinute: 1
+  isTimePaused: 0
 --- !u!1 &1389381741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2808,8 +2720,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437408691}
+  - component: {fileID: 1437408694}
   - component: {fileID: 1437408690}
-  - component: {fileID: 1437408689}
   - component: {fileID: 1437408692}
   - component: {fileID: 1437408693}
   m_Layer: 5
@@ -2819,19 +2731,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1437408689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1437408688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42a6834347f894848b47e78d8c5be31f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WindowFocusHandler
-  rootWindowTransform: {fileID: 0}
 --- !u!114 &1437408690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2912,6 +2811,65 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   lockScreen: {fileID: 1389381741}
+--- !u!114 &1437408694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437408688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb5a9066d469e654a8ea8e97a74c5a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::IconManager
+  desktopIconPrefab: {fileID: 5300042318619130731, guid: 931995609e3439c4ab1980731e2828c7, type: 3}
+  taskbarIconPrefab: {fileID: 6305995553692463724, guid: d2ee31599f880c44eb0181a971e6d768, type: 3}
+  desktopIconsContainer: {fileID: 1467424764}
+  taskbarContainer: {fileID: 1281944720}
+  availableApps:
+  - appType: 0
+    iconSprite: {fileID: 21300000, guid: a47fb4deda25da844b4271898316f215, type: 3}
+    isInstalled: 1
+    appName: Recycle Bin
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 2
+    iconSprite: {fileID: 21300000, guid: 23743e22f298b4a4dbddd4fb13eeb9f4, type: 3}
+    isInstalled: 1
+    appName: Explorer
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 1
+    iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
+    isInstalled: 1
+    appName: Settings
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 3
+    iconSprite: {fileID: 21300000, guid: df9ec043283924249b1584c005a14941, type: 3}
+    isInstalled: 1
+    appName: Browser
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 4
+    iconSprite: {fileID: 21300000, guid: f8cb537d3b8103e4389df720c5273931, type: 3}
+    isInstalled: 1
+    appName: Terminal
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 5
+    iconSprite: {fileID: 21300000, guid: f44bc8deb8753144bad70e84080f44d3, type: 3}
+    isInstalled: 1
+    appName: Help
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 6
+    iconSprite: {fileID: 21300000, guid: ff14b6548dbfb0b4b916af6822d5e6e9, type: 3}
+    isInstalled: 0
+    appName: BTCMiner
+    priceUSD: 25
+    priceBTC: 0
 --- !u!1 &1441345249
 GameObject:
   m_ObjectHideFlags: 0
@@ -5113,7 +5071,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1675384752}
-  - {fileID: 134331533}
   - {fileID: 1437408691}
   - {fileID: 1351681617}
   - {fileID: 28912805}

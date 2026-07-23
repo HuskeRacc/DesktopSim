@@ -18,7 +18,6 @@ else
     Debug.Log("Player is too broke to buy this app.");
 }
 
-
 Internet speed:
 // Upgrade speed
 BrowserManager.Instance.UpgradeInternetSpeed(0.5f);
@@ -31,3 +30,8 @@ Upgrades:
 Upgrades require a scriptableobject reference.
 For app/UI unlocks, UnlockManager gameobject in heirarchy is required to be setup.
 
+Notifications:
+if (NotificationManager.Instance != null)
+{
+    NotificationManager.Instance.SendNotification("System Alert", "Your internet speed was upgraded!");
+}

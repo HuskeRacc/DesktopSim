@@ -16,6 +16,6 @@ MonoBehaviour:
   upgradeType: 1
   baseCost: 15
   costMultiplier: 1.5
-  maxLevel: 5
+  maxLevel: 20
   effectAmount: 0.0005
   appToUnlock: 0

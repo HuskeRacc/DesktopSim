@@ -4,15 +4,11 @@ public class MiningManager : MonoBehaviour
 {
     public static MiningManager Instance { get; private set; }
 
-    [Header("Mining Stats")]
-    public float miningRatePerSecond = 0.005f; // Speed
-    
+    [Header("Mining Settings")]
     [Tooltip("How often in seconds the BTC actually gets deposited/updated")]
     public float updateInterval = 1.0f; 
     
     public bool isMining { get; private set; } = false;
-    public float totalMinedThisSession { get; private set; } = 0f;
-
     private float timer = 0f;
 
     private void Awake()
@@ -27,26 +23,24 @@ public class MiningManager : MonoBehaviour
 
     private void Update()
     {
-        if (isMining)
+        if (isMining && ResourceManager.Instance != null)
         {
             timer += Time.deltaTime;
 
             // Wait until our timer reaches the specified interval (e.g., 1 second)
             if (timer >= updateInterval)
             {
+                // Grab the live rate dynamically from ResourceManager!
+                float currentRate = ResourceManager.Instance.miningRatePerSecond;
+                
                 // Calculate the chunk of BTC mined during this specific interval
-                float minedThisTick = miningRatePerSecond * updateInterval;
+                float minedThisTick = currentRate * updateInterval;
                 
-                // Add to our visual tracker
-                totalMinedThisSession += minedThisTick;
-                
-                // Deposit it directly into the bank!
-                if (ResourceManager.Instance != null)
-                {
-                    ResourceManager.Instance.AddBitcoin(minedThisTick);
-                }
+                // Send data to ResourceManager
+                ResourceManager.Instance.AddMinedTotal(minedThisTick);
+                ResourceManager.Instance.AddBitcoin(minedThisTick);
 
-                // Subtract the interval instead of setting to 0 to prevent time drift (lag loss)
+                // Subtract the interval instead of setting to 0 to prevent time drift
                 timer -= updateInterval; 
             }
         }
@@ -56,16 +50,9 @@ public class MiningManager : MonoBehaviour
     {
         isMining = !isMining;
         
-        // Reset the timer when stopped so the next start is a fresh countdown
         if (!isMining) 
         {
             timer = 0f;
         }
-    }
-
-    public void UpgradeMiningRate(float amountToAdd)
-    {
-        miningRatePerSecond += amountToAdd;
-        Debug.Log($"[MiningManager] Rate upgraded! New rate: {miningRatePerSecond}/sec");
     }
 }

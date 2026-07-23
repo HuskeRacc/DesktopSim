@@ -6,6 +6,9 @@ public enum DebugStat
 {
     USD_Balance,
     BTC_Balance,
+    BTC_USD_Value,
+    BTC_Sell_Rate,
+    BTC_Buy_Rate,
     Unbilled_Power,
     Mining_Rate,
     Net_Speed,
@@ -68,7 +71,6 @@ public class DebugPanelController : MonoBehaviour
         }
     }
 
-    // 4. The Data Router: This pulls from your game's actual Singletons
     private string GetStatValue(DebugStat stat)
     {
         switch (stat)
@@ -79,14 +81,24 @@ public class DebugPanelController : MonoBehaviour
             case DebugStat.BTC_Balance:
                 return ResourceManager.Instance != null ? ResourceManager.Instance.GetBTC().ToString("F5") : "N/A";
             
+            case DebugStat.BTC_USD_Value:
+                return ResourceManager.Instance != null ? "$" + ResourceManager.Instance.currentBTCValueInUSD.ToString("F2") : "N/A";
+
+            case DebugStat.BTC_Buy_Rate:
+                return ResourceManager.Instance != null ? "$" + ResourceManager.Instance.btcBuyRate.ToString("F2") : "N/A";
+
+            case DebugStat.BTC_Sell_Rate:
+                return ResourceManager.Instance != null ? "$" + ResourceManager.Instance.btcSellRate.ToString("F2") : "N/A";
+
             case DebugStat.Unbilled_Power:
                 return ResourceManager.Instance != null ? ResourceManager.Instance.unbilledPower.ToString("F2") : "N/A";
 
             case DebugStat.Mining_Rate:
-                return MiningManager.Instance != null ? MiningManager.Instance.miningRatePerSecond.ToString("F4") : "N/A";
+                // Replaced raw float formatting with the clean hashrate format!
+                return ResourceManager.Instance != null ? ResourceManager.FormatHashrate(ResourceManager.Instance.miningRatePerSecond) : "N/A";
 
             case DebugStat.Net_Speed:
-                return ResourceManager.Instance != null ? ResourceManager.Instance.GetSpeedScoreMBps().ToString("F1") : "N/A";
+                return ResourceManager.Instance != null ? ResourceManager.Instance.GetSpeedScoreMBps().ToString("F1") + " MBps" : "N/A";
 
             case DebugStat.Time_Paused:
                 return TimeManager.Instance != null ? TimeManager.Instance.isTimePaused.ToString() : "N/A";

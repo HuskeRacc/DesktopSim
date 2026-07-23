@@ -1089,7 +1089,7 @@ MonoBehaviour:
   m_text: "<color=red>\n<b><u>GETTING STARTED</u></b>\n-Open browser\n-Go to Apps\n-Download
     BTC Miner\nThis allows you to have an income, even if you overspend, you'll still
     have an income, albeit slow. \nThis also prevents softlocks.</color>\n<color=orange>\nYou
-    will recieve bills!\nmake sure to have enough money to pay them!</color>\n<color=green>\nHave
+    will receive bills!\nmake sure to have enough money to pay them!</color>\n<color=green>\nHave
     fun!</color>\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

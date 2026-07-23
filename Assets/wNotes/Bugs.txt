@@ -1,19 +1,2 @@
-Net speed upgrades are a bit slow for the price.
+Typo in notepad as 'recieve'?
 
-Mine speed i think is okay looking at the BTC value. But may make too much money.
-Maybe change exchange rate value?
-0.37btc is $350 roughly, not bad actually considering the time waiting, and full upgrades.
-
-Speed UI has too many trailing 0's for the network speed.
-Can also change it to say Mbps
-
-Debug value of Mining Rate can't display enough 0's
-Mine speed UI value is just bloated with 0's.
-Need to ask AI how to make it look better.
-The default mine rate is so slow, it doesn't show on the taskbar due to not enough 0's either.
-The currency UI is also missing a 0, not showing the full value.
-
-One upgrade for mine speed, shows the value correctly on debug and speed UI. 
-Again due to lack of 0's. ("F4") or whatever.
-
-Maybe a hashrate?

@@ -67,8 +67,8 @@ public class PlayerUpgradeManager : MonoBehaviour
                 break;
 
             case UpgradeType.MiningSpeed:
-                if (MiningManager.Instance != null)
-                    MiningManager.Instance.UpgradeMiningRate(data.effectAmount);
+                if (ResourceManager.Instance != null)
+                    ResourceManager.Instance.UpgradeMiningRate(data.effectAmount);
                 break;
 
             case UpgradeType.UIUnlock:

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Internet Speed
   upgradeType: 0
-  baseCost: 150
-  costMultiplier: 1.5
+  baseCost: 25
+  costMultiplier: 1.25
   maxLevel: 5
   effectAmount: 0.5
   appToUnlock: 0
