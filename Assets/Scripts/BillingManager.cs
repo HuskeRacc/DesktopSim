@@ -12,7 +12,7 @@ public class BillingManager : MonoBehaviour
 
     private int hoursPassed = 0;
     private int totalHoursPlayed = 0;
-    private bool isGracePeriodOver = false;
+    [SerializeField] private bool isGracePeriodOver = false;
 
     [Header("Electricity")]
     public bool hasElectricityBill = false;
@@ -50,6 +50,11 @@ public class BillingManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        if (gracePeriodHours <= 0) isGracePeriodOver = true;
     }
 
     private void HandleHourPassed()
