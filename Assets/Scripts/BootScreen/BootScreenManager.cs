@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class BootScreenManager : MonoBehaviour
 {
-    private void Start()
+    public void Start()
     {
-        this.gameObject.SetActive(true);
+        TimeManager.Instance.PauseTime();
     }
 
     public void Login()
     {
+        TimeManager.Instance.ResumeTime();
         this.gameObject.SetActive(false);
     }
 }

@@ -22,12 +22,14 @@ public class QuitPopupController : MonoBehaviour
 
     public void ShowPopup()
     {
+        TimeManager.Instance.PauseTime();
         gameObject.SetActive(true);
         transform.SetAsLastSibling(); // Ensure it sits on top of all open app windows
     }
 
     public void HidePopup()
     {
+        TimeManager.Instance.ResumeTime();
         gameObject.SetActive(false);
     }
 
