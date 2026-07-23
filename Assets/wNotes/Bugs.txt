@@ -1,0 +1,14 @@
+Terminal raycast target disabled. Should be enabled
+
+Net speed upgrades are a bit slow for the price.
+
+Mine speed i think is okay looking at the BTC value. But may make too much money.
+Maybe change exchange rate value?
+0.37btc is $350 roughly, not bad actually considering the time waiting, and full upgrades.
+
+Speed UI has too many trailing 0's for the network speed.
+Can also change it to say Mbps
+
+Mine speed UI value is just bloated with 0's.
+Need to ask AI how to make it look better.
+

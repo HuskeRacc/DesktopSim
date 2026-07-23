@@ -26,3 +26,8 @@ BrowserManager.Instance.UpgradeInternetSpeed(0.5f);
 // Displays the current speed dynamically on your speed test webpage text component
 float currentMbps = BrowserManager.Instance.GetSpeedScoreMBps();
 speedTestText.text = $"Current Connection: {currentMbps} Mbps";
+
+Upgrades:
+Upgrades require a scriptableobject reference.
+For app/UI unlocks, UnlockManager gameobject in heirarchy is required to be setup.
+

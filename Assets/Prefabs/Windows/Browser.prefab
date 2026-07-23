@@ -1413,7 +1413,7 @@ GameObject:
   - component: {fileID: 7843816389705617201}
   - component: {fileID: 4109751060249147125}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: MineSpeedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3176,7 +3176,7 @@ GameObject:
   - component: {fileID: 5991160863985883998}
   - component: {fileID: 3361371086723295555}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: NetSpeedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5975,11 +5975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   availableUpgrades:
-  - data: {fileID: 11400000, guid: 40a137c4218e303469df29cea73f22b9, type: 2}
+  - data: {fileID: 11400000, guid: 2d6002975028e794eaa19e62d523037f, type: 2}
     upgradeButton: {fileID: 3361371086723295555}
     levelText: {fileID: 9222303675484954224}
     costText: {fileID: 1450230648292216307}
-  - data: {fileID: 11400000, guid: 2d6002975028e794eaa19e62d523037f, type: 2}
+  - data: {fileID: 11400000, guid: 40a137c4218e303469df29cea73f22b9, type: 2}
     upgradeButton: {fileID: 4109751060249147125}
     levelText: {fileID: 4051034978093195831}
     costText: {fileID: 8778749347434381821}
@@ -10421,7 +10421,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 525.887}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1100473686638825365
@@ -15954,7 +15954,7 @@ GameObject:
   - component: {fileID: 7550956513792171291}
   - component: {fileID: 4322353883849132705}
   m_Layer: 5
-  m_Name: BuyButton
+  m_Name: SpeedUIButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19576,7 +19576,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3846704778426523549}
   m_HandleRect: {fileID: 2146869961617224487}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
