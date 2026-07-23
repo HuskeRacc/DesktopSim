@@ -13,4 +13,5 @@ same with crypto. ("-BTC")
 
 Uparrow in terminal for last command
 
-Typo in notepad for 'recieve'?
+Credits in settings
+Or as desektop app
