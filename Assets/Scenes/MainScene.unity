@@ -251,16 +251,16 @@ MonoBehaviour:
     appName: Recycle Bin
     priceUSD: 0
     priceBTC: 0
-  - appType: 1
-    iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
-    isInstalled: 1
-    appName: Settings
-    priceUSD: 0
-    priceBTC: 0
   - appType: 2
     iconSprite: {fileID: 21300000, guid: 23743e22f298b4a4dbddd4fb13eeb9f4, type: 3}
     isInstalled: 1
     appName: Explorer
+    priceUSD: 0
+    priceBTC: 0
+  - appType: 1
+    iconSprite: {fileID: 21300000, guid: f838f82f2bfa2e84cb4566d922c01218, type: 3}
+    isInstalled: 1
+    appName: Settings
     priceUSD: 0
     priceBTC: 0
   - appType: 3
@@ -278,7 +278,7 @@ MonoBehaviour:
   - appType: 5
     iconSprite: {fileID: 21300000, guid: f44bc8deb8753144bad70e84080f44d3, type: 3}
     isInstalled: 1
-    appName: Notes
+    appName: Help/Tutorial
     priceUSD: 0
     priceBTC: 0
   - appType: 6
