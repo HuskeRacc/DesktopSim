@@ -43,8 +43,16 @@ public class UpgradeItem
 // 3. The Page Manager
 public class UpgradeManager : MonoBehaviour
 {
+    public static UpgradeManager Instance;
+
     [Header("Store Inventory")]
     public List<UpgradeItem> availableUpgrades = new List<UpgradeItem>();
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -147,5 +155,17 @@ public class UpgradeManager : MonoBehaviour
                 item.costText.text = $"Cost: ${item.currentCost.ToString("F2")}";
             }
         }
+    }
+
+    public int GetUpgradeLevel(UpgradeType type)
+    {
+        foreach (var item in availableUpgrades)
+        {
+            if (item.upgradeType == type)
+            {
+                return item.currentLevel;
+            }
+        }
+        return 0; // Return 0 if they haven't bought it or it doesn't exist
     }
 }

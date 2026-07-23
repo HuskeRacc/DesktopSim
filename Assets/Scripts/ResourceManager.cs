@@ -9,6 +9,13 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] private float currentUSD = 0.00f;
     [SerializeField] private float currentBTC = 0.000f;
 
+    [Header("Power Settings")]
+    public float basePowerDrawRate = 5f;
+    public float powerPerMiningLevel = 2.5f;
+    public float costPerKWh = 0.12f;
+
+    public float unbilledPower = 0f;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -17,6 +24,30 @@ public class ResourceManager : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    private void Update()
+    {
+        float currentPowerDraw = basePowerDrawRate;
+
+        // Automatically increase power draw if they have upgraded their mining rigs
+        if (UpgradeManager.Instance != null)
+        {
+            int miningLevel = UpgradeManager.Instance.GetUpgradeLevel(UpgradeType.MiningSpeed);
+            currentPowerDraw += (miningLevel * powerPerMiningLevel);
+        }
+
+        // Continuously accumulate power usage over time
+        unbilledPower += currentPowerDraw * Time.deltaTime;
+    }
+
+    public float CalculateAndResetPowerBill(out float powerUsed)
+    {
+        powerUsed = unbilledPower;
+        float totalCost = unbilledPower * costPerKWh;
+
+        unbilledPower = 0f; // Reset after billing
+        return totalCost;
     }
 
     // -- USD METHODS --

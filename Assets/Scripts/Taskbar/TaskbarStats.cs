@@ -20,6 +20,8 @@ public class TaskbarStats : MonoBehaviour
     private float lastKnownUsd = -1f;
     private float lastKnownBtc = -1f;
 
+    private string lastKnownTime = "";
+
     private void Update()
     {
         UpdateClock();
@@ -29,10 +31,17 @@ public class TaskbarStats : MonoBehaviour
 
     private void UpdateClock()
     {
-        if (dateTimeText != null)
+        if (TimeManager.Instance != null && dateTimeText != null)
         {
-            // Pulls the exact formatting from your DateTime script[cite: 1]
-            dateTimeText.text = System.DateTime.Now.ToString("HH:mm:ss\ndd-MM-yyyy");
+            // Pull the fake game time from the manager
+            string currentTime = TimeManager.Instance.GetFormattedTime();
+            
+            // Only update the text element if the minute has changed
+            if (currentTime != lastKnownTime)
+            {
+                lastKnownTime = currentTime;
+                dateTimeText.text = currentTime;
+            }
         }
     }
 
@@ -70,7 +79,7 @@ public class TaskbarStats : MonoBehaviour
             if (currentUsd != lastKnownUsd)
             {
                 lastKnownUsd = currentUsd;
-                if (usdText != null) usdText.text = $"{currentUsd:F3}"; // Formatting from ResourceManager[cite: 2]
+                if (usdText != null) usdText.text = $"{currentUsd:F3}"; // Formatting from ResourceManager
             }
 
             // 2. BTC
@@ -78,7 +87,7 @@ public class TaskbarStats : MonoBehaviour
             if (currentBtc != lastKnownBtc)
             {
                 lastKnownBtc = currentBtc;
-                if (btcText != null) btcText.text = $"{currentBtc:F5}"; // Formatting from ResourceManager[cite: 2]
+                if (btcText != null) btcText.text = $"{currentBtc:F5}"; // Formatting from ResourceManager
             }
         }
     }
