@@ -22,7 +22,6 @@ public class BrowserManager : MonoBehaviour
     [SerializeField] private Button forwardButton;
 
     [Header("Internet Settings")]
-    [SerializeField] private float pageLoadTime = 3.0f; // Seconds it takes to load a page
     [SerializeField] private Image loadingProgressBar;
 
     [Header("Websites")]
@@ -128,13 +127,18 @@ public class BrowserManager : MonoBehaviour
         }
 
         float elapsedTime = 0f;
-        while (elapsedTime < pageLoadTime)
+        
+        // Pull the live speed from the persistent manager
+        float currentLoadTime = ResourceManager.Instance != null ? ResourceManager.Instance.pageLoadTime : 3.0f;
+
+        while (elapsedTime < currentLoadTime)
         {
             elapsedTime += Time.deltaTime;
             
             if (loadingProgressBar != null)
             {
-                loadingProgressBar.fillAmount = elapsedTime / pageLoadTime;
+                // Use the new variable for the fill math
+                loadingProgressBar.fillAmount = elapsedTime / currentLoadTime;
             }
             
             yield return null; 
@@ -177,27 +181,5 @@ public class BrowserManager : MonoBehaviour
     {
         if (backButton != null) backButton.interactable = historyIndex > 0;
         if (forwardButton != null) forwardButton.interactable = historyIndex < history.Count - 1;
-    }
-
-    // --- PUBLIC ACCESSORS FOR OTHER SCRIPTS ---
-
-    // Returns the raw load time in seconds
-    public float GetPageLoadTime()
-    {
-        return pageLoadTime;
-    }
-
-    // Useful for a Speed Test site (e.g., lower load time = higher Mbps score)
-    public float GetSpeedScoreMBps()
-    {
-        // Simple inverse formula: lower load time means higher Mbps score
-        return Mathf.Round(10f / pageLoadTime * 10f) / 10f; 
-    }
-
-    // Called by upgrade buttons to make the internet faster
-    public void UpgradeInternetSpeed(float amountToSubtract)
-    {
-        pageLoadTime = Mathf.Max(0.1f, pageLoadTime - amountToSubtract);
-        Debug.Log($"[Browser] Internet Upgraded! New load time: {pageLoadTime}s");
     }
 }

@@ -50,7 +50,7 @@ public class TaskbarStats : MonoBehaviour
         // 1. Internet Speed
         if (BrowserManager.Instance != null)
         {
-            float currentNetSpeed = BrowserManager.Instance.GetSpeedScoreMBps(); 
+            float currentNetSpeed = ResourceManager.Instance.GetSpeedScoreMBps(); 
             if (currentNetSpeed != lastKnownNetSpeed)
             {
                 lastKnownNetSpeed = currentNetSpeed;

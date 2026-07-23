@@ -119,9 +119,9 @@ public class BillingManager : MonoBehaviour
     {
         int currentInternetLevel = 0;
 
-        if (UpgradeManager.Instance != null)
+        if (PlayerUpgradeManager.Instance != null)
         {
-          currentInternetLevel = UpgradeManager.Instance.GetUpgradeLevel(UpgradeType.InternetSpeed);
+          currentInternetLevel = PlayerUpgradeManager.Instance.GetUpgradeLevel(UpgradeType.InternetSpeed);
         }
 
         float cycleCharge = baseISPFee + (currentInternetLevel * costPerInternetTier);

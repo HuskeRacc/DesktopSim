@@ -1,6 +1,6 @@
 using UnityEngine;
+using System;
 
-// Notice we no longer need 'using TMPro;' up here!
 public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
@@ -8,13 +8,16 @@ public class ResourceManager : MonoBehaviour
     [Header("Currencies")]
     [SerializeField] private float currentUSD = 0.00f;
     [SerializeField] private float currentBTC = 0.000f;
+    public event Action<float> OnUSDChanged;
 
     [Header("Power Settings")]
     public float basePowerDrawRate = 5f;
     public float powerPerMiningLevel = 2.5f;
     public float costPerKWh = 0.12f;
-
     public float unbilledPower = 0f;
+
+    [Header("Network Settings")]
+    public float pageLoadTime = 3.0f;
 
     private void Awake()
     {
@@ -30,16 +33,18 @@ public class ResourceManager : MonoBehaviour
     {
         float currentPowerDraw = basePowerDrawRate;
 
-        // Automatically increase power draw if they have upgraded their mining rigs
-        if (UpgradeManager.Instance != null)
+        // Ask the backend PlayerUpgradeManager for the level, not the UI!
+        if (PlayerUpgradeManager.Instance != null)
         {
-            int miningLevel = UpgradeManager.Instance.GetUpgradeLevel(UpgradeType.MiningSpeed);
+            int miningLevel = PlayerUpgradeManager.Instance.GetUpgradeLevel(UpgradeType.MiningSpeed);
             currentPowerDraw += (miningLevel * powerPerMiningLevel);
         }
 
         // Continuously accumulate power usage over time
         unbilledPower += currentPowerDraw * Time.deltaTime;
     }
+
+    // -- BILL METHODS --
 
     public float CalculateAndResetPowerBill(out float powerUsed)
     {
@@ -50,11 +55,25 @@ public class ResourceManager : MonoBehaviour
         return totalCost;
     }
 
+    // -- NETWORK METHODS --
+    public float GetSpeedScoreMBps()
+    {
+        return Mathf.Round(10f / pageLoadTime * 10f) / 10f;
+    }
+
+    public void UpgradeInternetSpeed(float amountToSubtract)
+    {
+        pageLoadTime = Mathf.Max(0.1f, pageLoadTime - amountToSubtract);
+        Debug.Log($"[OS Network] Internet Upgraded! New load time: {pageLoadTime}s");
+    }
+
     // -- USD METHODS --
 
     public void AddUSD(float amount)
     {
         currentUSD += amount;
+
+        OnUSDChanged?.Invoke(currentUSD);
     }
 
     public bool SpendUSD(float amount)
@@ -62,6 +81,9 @@ public class ResourceManager : MonoBehaviour
         if (currentUSD >= amount)
         {
             currentUSD -= amount;
+
+            OnUSDChanged?.Invoke(currentUSD);
+            
             return true;
         }
 

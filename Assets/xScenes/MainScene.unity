@@ -119,6 +119,66 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &28912803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 28912805}
+  - component: {fileID: 28912804}
+  - component: {fileID: 28912806}
+  m_Layer: 5
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &28912804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28912803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3489f207188d98b45acb0e4705c88487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+--- !u!4 &28912805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28912803}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &28912806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 28912803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 158eae4f4db2d1543a93d151c3e31807, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  unlockableApps:
+  - appType: 1
+    uiPanel: {fileID: 2137726881}
 --- !u!1 &101686234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,7 +2639,6 @@ GameObject:
   - component: {fileID: 1351681617}
   - component: {fileID: 1351681618}
   - component: {fileID: 1351681619}
-  - component: {fileID: 1351681621}
   - component: {fileID: 1351681620}
   m_Layer: 5
   m_Name: ResourceManager
@@ -2621,6 +2680,7 @@ MonoBehaviour:
   powerPerMiningLevel: 2.5
   costPerKWh: 0.12
   unbilledPower: 0
+  pageLoadTime: 3
 --- !u!114 &1351681619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2659,19 +2719,6 @@ MonoBehaviour:
   costPerInternetTier: 12.5
   hasFine: 0
   fineCost: 0
---- !u!114 &1351681621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351681616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 158eae4f4db2d1543a93d151c3e31807, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speedMonitorUI: {fileID: 2137726881}
 --- !u!1 &1389381741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2804,6 +2851,9 @@ MonoBehaviour:
   - popupID: rajii2
     popupPrefab: {fileID: 5180701178650116019, guid: 4935799b8bb1a4841aed07f8f4c42f3b, type: 3}
     popupIcon: {fileID: 21300000, guid: ddeb276e0055bf043acba6e2f02d648e, type: 3}
+  - popupID: debug
+    popupPrefab: {fileID: 4390538768398054576, guid: 3e9282ec964768f40b5a7b2816f1be12, type: 3}
+    popupIcon: {fileID: 21300000, guid: 7cb20f183e08f2f42bcc818736c31d43, type: 3}
   canvasTransform: {fileID: 1261889476}
   appWindowConfigs:
   - appType: 1
@@ -4321,6 +4371,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5959556376605555728}
+        m_TargetAssemblyTypeName: PausePopup, Assembly-CSharp
+        m_MethodName: ContinueGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2076087782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4914,8 +4976,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   quitButton: {fileID: 6465317315073092879}
   continueButton: {fileID: 1828825810}
-  lockButton: {fileID: 2076087781}
-  lockScreen: {fileID: 1389381741}
 --- !u!114 &6163528105084920236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5056,6 +5116,7 @@ SceneRoots:
   - {fileID: 134331533}
   - {fileID: 1437408691}
   - {fileID: 1351681617}
+  - {fileID: 28912805}
   - {fileID: 330585546}
   - {fileID: 1261889476}
   - {fileID: 1700529076}
