@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Mining Speed
   upgradeType: 1
-  baseCost: 50
+  baseCost: 15
   costMultiplier: 1.5
-  maxLevel: 10
-  effectAmount: 0.5
-  unlockID: 
+  maxLevel: 5
+  effectAmount: 0.0005
+  appToUnlock: 0
