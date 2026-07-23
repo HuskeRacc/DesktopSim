@@ -1,2 +1,7 @@
-Typo in notepad as 'recieve'?
+Some windows render above the lockscreen.
 
+Upgrade values are too non-linear.
+Need to fine-tune so the price increase feels consistent
+and returns are okay. Currently Minerate is okay, it's slow.
+At max upgrades it's maybe a dollar per 5-10 ingame minutes.
+It's supposed to be a side profit.
