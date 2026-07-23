@@ -405,7 +405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   infoLinePrefab: {fileID: 6030162042038090536, guid: 761cfacbb3d018d4bb59bde4ed0c23ca, type: 3}
   gridContainer: {fileID: 3972126763002877194}
-  statsToWatch: 000000000100000002000000030000000400000005000000
+  statsToWatch: 00000000010000000200000003000000040000000600000005000000
 --- !u!114 &8719310844267681909
 MonoBehaviour:
   m_ObjectHideFlags: 0

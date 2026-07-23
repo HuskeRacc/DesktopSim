@@ -15,7 +15,7 @@ MonoBehaviour:
   upgradeName: Mining Speed
   upgradeType: 1
   baseCost: 15
-  costMultiplier: 1.5
+  costMultiplier: 1.55
   maxLevel: 20
-  effectAmount: 0.0005
+  effectAmount: 0.000015
   appToUnlock: 0

@@ -2577,7 +2577,7 @@ MonoBehaviour:
   powerPerMiningLevel: 2.5
   costPerKWh: 0.12
   unbilledPower: 0
-  miningRatePerSecond: 0.005
+  miningRatePerSecond: 0.000005
   totalMinedThisSession: 0
   pageLoadTime: 3
 --- !u!114 &1351681619

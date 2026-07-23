@@ -15,3 +15,5 @@ Uparrow in terminal for last command
 
 Credits in settings
 Or as desektop app
+
+command to unlock all upgrades instantly.
